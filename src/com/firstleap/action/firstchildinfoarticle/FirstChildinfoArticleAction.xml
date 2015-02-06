@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+    "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="com.firstleap.action.firstchildinfoarticle.FirstChildinfoArticleAction" extends="index" namespace="/childartic">
+		<action name="childartic_*" class="FirstChildinfoArticleAction" method="{1}">
+        	<result name="input">/index.jsp</result>
+        	<result name="list">/WEB-INF/firstleap/firstchildinfoarticle/firstchildinfoarticle.jsp</result>
+        	<result name="create">/WEB-INF/firstleap/firstchildinfoarticle/firstchildinfoarticleSave.jsp</result>
+        	<result name="save" type="redirect">/childartic/childartic_list.action</result>
+        	<result name="edit">/WEB-INF/firstleap/firstchildinfoarticle/firstchildinfoarticleUpdate.jsp</result>
+        	<result name="update" type="redirect">/childartic/childartic_list.action</result>
+        	
+        </action>
+	</package>
+	
+</struts>
+	

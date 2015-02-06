@@ -1,0 +1,129 @@
+/* CSS Document */
+
+.banquan {
+	font-size: 12px;
+	line-height: 22px;
+	color: #666666;
+	text-decoration: none;
+}
+
+.font0a{
+     font-family:Verdana, Arial, Helvetica, sans-serif;
+     font-size:12px;
+     line-height:20px;
+     color:#9dd7fb;
+}
+.font0a-1{
+     font-family:Verdana, Arial, Helvetica, sans-serif;
+     font-size:12px;
+     line-height:22px;
+     letter-spacing:1px;
+     color:#005fa7;
+}
+
+.text0b{
+     font-family:Verdana, Arial, Helvetica, sans-serif;
+     font-size:13px;
+     color:#ffffff;
+     font-weight:bold;
+     letter-spacing:2px;
+     text-decoration:none;
+}
+.text0b:hover{
+     font-family:Verdana, Arial, Helvetica, sans-serif;
+     font-size:13px;
+     color:#fffd06;
+     font-weight:bold;
+     letter-spacing:2px;
+     text-decoration:none;
+}
+.text0c{
+     font-family:Verdana, Arial, Helvetica, sans-serif;
+     font-size:12px;
+     color:#ffffff;
+     letter-spacing:1px;
+     text-decoration:none;
+}
+.text0c:hover{
+     font-family:Verdana, Arial, Helvetica, sans-serif;
+     font-size:12px;
+     color:#fffd06;
+     letter-spacing:1px;
+     text-decoration:none;
+}
+.text0e{
+     font-family:Verdana, Arial, Helvetica, sans-serif;
+     font-size:13px;
+     color:#000000;
+     letter-spacing:1px;
+     line-height:24px;
+     text-decoration:none;
+}
+.text0e:hover{
+     font-family:Verdana, Arial, Helvetica, sans-serif;
+     font-size:13px;
+     color:#fffd06;
+     letter-spacing:1px;
+     line-height:24px;
+     text-decoration:none;
+}
+.border0d{
+border:1px solid #237ad7;
+}
+
+.input0f{
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:12px;
+width:195px;
+height:18px;
+color:#000000;
+border:1px solid #065b97;
+}
+
+table.chart_list
+{
+	border-right:1px solid #b7076b; border-top:1px solid #b7076b; 
+}
+table.chart_list th
+{
+	border-left:1px solid #00293c; font-size:12px; border-bottom:1px solid #00293c; background-color: #ffffff;color: #e059b2;font-weight: bold;  padding-left:10px;padding-right:10px; text-align:center; height:18px; 
+}
+
+table.chart_list thead th
+{
+	border-left:1px solid #b7076b; font-size:12px; border-bottom:1px solid #b7076b; background-color: #ffffff;color:#e059b2;  padding-left:10px;padding-right:10px;font-weight: bold;
+	text-align:center;
+	}
+
+table.chart_list td
+{
+	 border-left:1px solid #b7076b; font-size:12px; font-size:12px;padding-left:10px; padding-right:10px;border-bottom:1px solid #e059b2; background-color: #FFFFFF; height:32px;
+}
+.text4{
+     font-family:Verdana, Arial, Helvetica, sans-serif;
+     font-size:12px;
+	 line-height:20px;
+     color:#cd0084;
+     text-decoration:none;
+}
+.text4:hover{
+     font-family:Verdana, Arial, Helvetica, sans-serif;
+     font-size:12px;
+     line-height:20px;
+     color:#ff7e00;
+     text-decoration:none;
+}
+.deleteButton{
+	 font-family:Verdana, Arial, Helvetica, sans-serif;
+     font-size:12px;
+	 line-height:20px;
+     color:#cd0084;
+     text-decoration:none;
+}
+.deleteButton:hover{
+	 font-family:Verdana, Arial, Helvetica, sans-serif;
+     font-size:12px;
+     line-height:20px;
+     color:#ff7e00;
+     text-decoration:none;
+}

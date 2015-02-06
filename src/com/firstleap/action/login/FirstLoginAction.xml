@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+    "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="com.firstleap.action.login.FirstLoginAction" extends="index" namespace="/login">
+		<action name="login_*" class="FirstLoginAction" method="{1}">
+        	<result name="input">/index.jsp</result>
+        	<result name="listToLogin">/WEB-INF/firstleap/login/login.jsp</result>
+        	<result name="topi">/WEB-INF/firstleap/frame/skin/top.jsp</result>
+        	<result name="lefti">/WEB-INF/firstleap/frame/skin/left.jsp</result>
+        	<result name="righti">/WEB-INF/firstleap/frame/skin/right.jsp</result>
+        	<result name="bottomi">/WEB-INF/firstleap/frame/skin/bottom.jsp</result>
+        	<result name="list">/medical/login/loginList.jsp</result>
+        	<result name="selectMenu">/WEB-INF/firstleap/frame/innermanager.jsp</result>
+        	<result name="adminlogin" type="redirect">/login/login_selectMenu.action</result>
+        	<result name="logout" type="redirect">/login/login_listToLogin.action</result>
+        	<result name="xgmm">/WEB-INF/firstleap/login/xiugaimima.jsp</result>
+        	<result name="updatemm" type="redirect">/login/login_logout.action</result>
+        </action>
+	</package>
+	
+</struts>
+	

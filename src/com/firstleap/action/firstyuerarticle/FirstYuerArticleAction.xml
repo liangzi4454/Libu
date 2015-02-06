@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+    "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="com.firstleap.action.firstyuerarticle.FirstYuerArticleAction" extends="index" namespace="/yuerartic">
+		<action name="yuerartic_*" class="FirstYuerArticleAction" method="{1}">
+        	<result name="input">/index.jsp</result>
+        	<result name="list">/WEB-INF/firstleap/firstyuerarticle/firstyuerarticle.jsp</result>
+        	<result name="create">/WEB-INF/firstleap/firstyuerarticle/firstyuerarticleSave.jsp</result>
+        	<result name="save" type="redirect">/yuerartic/yuerartic_list.action</result>
+        	<result name="edit">/WEB-INF/firstleap/firstyuerarticle/firstyuerarticleUpdate.jsp</result>
+        	<result name="update" type="redirect">/yuerartic/yuerartic_list.action</result>
+        	
+        </action>
+	</package>
+	
+</struts>
+	

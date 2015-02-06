@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+	<!-- 加载多个spring配置文件  -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/spring/applicationContext.xml,
+			/WEB-INF/spring/applicationContext-common.xml
+		</param-value>
+	</context-param>
+	
+	
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+    <filter>
+		<filter-name>lazy</filter-name>
+		<filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>lazy</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- struts2注解 -->
+	
+	<filter>
+		<filter-name>struts2-prepare</filter-name>
+		<filter-class>
+			org.apache.struts2.dispatcher.ng.filter.StrutsPrepareFilter</filter-class>
+		<init-param>
+			<param-name>actionPackages</param-name>
+			<param-value>com.firstleap.action</param-value>
+		</init-param>
+	</filter>
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.FilterDispatcher</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>struts2-prepare</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!--session 超时定义,单位为分钟-->
+	<session-config>
+		<session-timeout>500</session-timeout>
+	</session-config>
+	
+	<welcome-file-list>
+		<welcome-file>/index.jsp</welcome-file>
+	</welcome-file-list>
+	
+	
+	<!-- 配置 Struts2 核心拦截器 -->
+	<filter>
+		<filter-name>struts-cleanup</filter-name>
+		<filter-class>
+			org.apache.struts2.dispatcher.ActionContextCleanUp
+		</filter-class>
+	</filter>
+	
+	<jsp-config>
+      <taglib>
+          <taglib-uri>PageTag</taglib-uri>
+          <taglib-location>/WEB-INF/conf/page.tld</taglib-location>
+      </taglib>
+      <taglib>
+          <taglib-uri>IsHalfYearTag</taglib-uri>
+          <taglib-location>/WEB-INF/conf/webtype.tld</taglib-location>
+      </taglib>
+       <taglib>
+          <taglib-uri>PrtypeTag</taglib-uri>
+          <taglib-location>/WEB-INF/conf/preagnanttype.tld</taglib-location>
+      </taglib>
+       <taglib>
+          <taglib-uri>ChildTypeTag</taglib-uri>
+          <taglib-location>/WEB-INF/conf/chlidtype.tld</taglib-location>
+      </taglib>
+      <taglib>
+          <taglib-uri>YuerTypeTag</taglib-uri>
+          <taglib-location>/WEB-INF/conf/yuertype.tld</taglib-location>
+      </taglib>
+  	</jsp-config> 
+</web-app>

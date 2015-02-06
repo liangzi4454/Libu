@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.firstleap.entity.po.FirstYuerArticle" table="LIBU_YUER_ARTICLE">
+        <id name="id" type="java.lang.String">
+            <column name="LIBU_ID" length="32" />
+            <generator class="assigned" />
+        </id>
+         <many-to-one name="firstYuerType" lazy="false" class="com.firstleap.entity.po.FirstYuerType" fetch="select">
+            <column name="YUER_ID" length="32" />
+        </many-to-one>
+        <property name="name" type="java.lang.String">
+            <column name="LIBU_NAME" length="100" />
+        </property>
+        <property name="childinfoContent" type="java.lang.String">
+            <column name="LIBU_CHILDINFO_CONTENT" length="2000" />
+        </property>
+        <property name="childinfoTitle" type="java.lang.String">
+            <column name="LIBU_CHILDINFO_TITLE" length="100" />
+        </property>
+        <property name="childinfoAbstract" type="java.lang.String">
+            <column name="LIBU_CHILDINFO_ABSTRACT" length="1000" />
+        </property>
+        <property name="childinfoImage" type="java.lang.String">
+            <column name="LIBU_CHILDINFO_IMAGE" length="100" />
+        </property>
+        <property name="isDelete" type="java.lang.String">
+            <column name="ISDELETE" length="10" />
+        </property>
+        <property name="createdDate" type="java.util.Date">
+            <column name="CREATE_DATE" length="7" />
+        </property>
+        <property name="updatedDate" type="java.util.Date">
+            <column name="UPDATE_DATE" length="7" />
+        </property>
+        <property name="paixu" type="java.lang.Long">
+            <column name="LIBU_PAIXU" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

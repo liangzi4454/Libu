@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+    "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="com.firstleap.action.firstwebtype.FirstWebTypeAction" extends="index" namespace="/webtype">
+		<action name="webtype_*" class="FirstWebTypeAction" method="{1}">
+        	<result name="input">/index.jsp</result>
+        	<result name="list">/WEB-INF/firstleap/firstwebtype/firstwebtype.jsp</result>
+        	<result name="create">/WEB-INF/firstleap/firstwebtype/firstwebtypeSave.jsp</result>
+        	<result name="save" type="redirect">/webtype/webtype_list.action</result>
+        	<result name="edit">/WEB-INF/firstleap/firstwebtype/firstwebtypeUpdate.jsp</result>
+        	<result name="update" type="redirect">/webtype/webtype_list.action</result>
+        	<result name="listi">/WEB-INF/firstleap/firstwebtypeto/firstwebtype.jsp</result>
+        	<result name="createi">/WEB-INF/firstleap/firstwebtypeto/firstwebtypeSave.jsp</result>
+        	<result name="savei" type="redirect">/webtype/webtype_listi.action</result>
+        </action>
+	</package>
+	
+</struts>
+	

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+    "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="com.firstleap.action.firstpregnanttype.FirstWebTypeAction" extends="index" namespace="/pregnanttype">
+		<action name="pregnanttype_*" class="FirstPregnantTypeAction" method="{1}">
+        	<result name="input">/index.jsp</result>
+        	<result name="list">/WEB-INF/firstleap/firstpregnanttype/firstpregnanttype.jsp</result>
+        	<result name="create">/WEB-INF/firstleap/firstpregnanttype/firstpregnanttypeSave.jsp</result>
+        	<result name="save" type="redirect">/pregnanttype/pregnanttype_list.action</result>
+        	<result name="edit">/WEB-INF/firstleap/firstpregnanttype/firstpregnanttypeUpdate.jsp</result>
+        	<result name="update" type="redirect">/pregnanttype/pregnanttype_list.action</result>
+        	<result name="listi">/WEB-INF/firstleap/firstpregnanttypeto/firstpregnanttype.jsp</result>
+        	<result name="createi">/WEB-INF/firstleap/firstpregnanttypeto/firstpregnanttypeSave.jsp</result>
+        	<result name="savei" type="redirect">/pregnanttype/pregnanttype_listi.action</result>
+        </action>
+	</package>
+	
+</struts>
+	

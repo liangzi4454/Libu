@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+    "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="com.firstleap.action.firstyuertype.FirstYuerTypeAction" extends="index" namespace="/yuertype">
+		<action name="yuertype_*" class="FirstYuerTypeAction" method="{1}">
+        	<result name="input">/index.jsp</result>
+        	<result name="list">/WEB-INF/firstleap/firstyuertype/firstyuertype.jsp</result>
+        	<result name="create">/WEB-INF/firstleap/firstyuertype/firstyuertypeSave.jsp</result>
+        	<result name="save" type="redirect">/yuertype/yuertype_list.action</result>
+        	<result name="edit">/WEB-INF/firstleap/firstyuertype/firstyuertypeUpdate.jsp</result>
+        	<result name="update" type="redirect">/yuertype/yuertype_list.action</result>
+        	
+        	<result name="listi">/WEB-INF/firstleap/firstyuertypeto/firstyuertype.jsp</result>
+        	<result name="createi">/WEB-INF/firstleap/firstyuertypeto/firstyuertypeSave.jsp</result>
+        	<result name="savei" type="redirect">/yuertype/yuertype_listi.action</result>
+        </action>
+	</package>
+	
+</struts>
+	

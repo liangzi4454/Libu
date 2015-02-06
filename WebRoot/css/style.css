@@ -1,0 +1,8 @@
+/*	全局定义　*/
+body,td,div,p{color:#1A438E;font:normal 12px/20px Tahoma,Verdana,sans-serif;}
+p{margin:0px; padding:0px;}
+body{background:#73a3d4; margin:5px 5px; padding:0px;}
+td{border-color:#C9DBEF;}
+a{color:#1A438E;text-decoration:none;}
+a:hover{color:#000000;text-decoration:none;}
+form {margin:0px;}

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+    "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+
+	<package name="index" extends="json-default">
+		<!-- 配置拦截器栈 -->
+		<interceptors>
+			<!-- 权限验证拦截器 -->
+			<interceptor name="auth"
+				class="com.firstleap.common.struts.interceptor.AuthenticationInterceptor">
+			</interceptor>
+			<!-- 进行权限验证的拦截器栈 -->
+			<interceptor-stack name="authStack">
+				<interceptor-ref name="auth">
+					<param name="excludeMethods">
+						listLogin,listToLogin
+					</param>
+				</interceptor-ref>
+				<interceptor-ref name="json" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		<!-- 本包默认使用 经过权限验证的拦截器栈-->
+		<default-interceptor-ref name="authStack"></default-interceptor-ref>
+			
+		<!-- <default-action-ref name="notFound"></default-action-ref>配置全局跳转 -->
+		<global-results>
+			<result name="noLogin">/index.jsp
+			</result>
+			<result name="noPermission">/admin/login.jsp
+			</result>
+			<result name="404" type="redirect">/404.html</result>
+			<result name="403" type="redirect">/403.html</result>
+			<result name="error" type="redirect">/404.html</result>
+			<result name="errorInfo">/admin/login.jsp</result>
+			<result name="errorjsp">/index.jsp</result>
+			<result name="login" type="redirectAction">
+				<param name="namespace">/userPurchase</param>
+				<param name="actionName">purchase_entry</param>
+			</result>
+		</global-results>
+	</package>
+	
+	<constant name="struts.action.extension" value="action"></constant>
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+	<include file="com/firstleap/action/login/FirstLoginAction.xml"></include>
+	<include file="com/firstleap/action/firsttype/FirstTypeAction.xml"></include>
+	<include file="com/firstleap/action/firstwebtype/FirstWebTypeAction.xml"></include>
+	<include file="com/firstleap/action/firstwebarticle/FirstWebArticleAction.xml"></include>
+	<include file="com/firstleap/action/firstchildinfotype/FirstChildinfoTypeAction.xml"></include>
+	<include file="com/firstleap/action/firstchildinfoarticle/FirstChildinfoArticleAction.xml"></include>
+	<include file="com/firstleap/action/firstyuertype/FirstYuerTypeAction.xml"></include>
+	<include file="com/firstleap/action/firstyuerarticle/FirstYuerArticleAction.xml"></include>
+	<include file="com/firstleap/action/firstpregnanttype/FirstPregnantTypeAction.xml"></include>
+	<include file="com/firstleap/action/firstpregnantarticle/FirstPregnantArticleAction.xml"></include>
+</struts>

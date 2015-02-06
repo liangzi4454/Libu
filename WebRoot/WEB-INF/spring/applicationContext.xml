@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+		
+	<!-- 成熟配置  张世超   -->
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>/WEB-INF/conf/jdbc.properties</value>
+              <!-- 这地方可以有多个值-->
+			</list>
+		</property>
+	</bean>
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+	    <property name="driverClass">
+			<value>${jdbc.driverClassName}</value> 
+		</property> 
+		<property name="jdbcUrl"> 
+			<value>${jdbc.url}</value>
+		 </property> 
+		<property name="user"> 
+			<value>${jdbc.username}</value> 
+		</property> 
+		<property name="password"> 
+			<value>${jdbc.password}</value> 
+		</property> 
+		<!-- 
+		<property name="initialPoolSize">
+			 <value>${c3p0.}</value>
+		</property> 
+		<property name="minPoolSize">
+			<value>${c3p0.minPoolSize}</value> 
+		</property> 
+		<property name="maxPoolSize"> 
+			<value>${c3p0.maxPoolSize}</value>
+		</property>
+		<property name="acquireIncrement">
+			<value>${c3p0.acquireIncrement}</value> 
+		</property> 
+		<property name="maxIdleTime"> 
+		<value>${c3p0.maxIdleTime}</value> 
+		</property>
+		<property name="idleConnectionTestPeriod">
+			<value>${c3p0.idleConnectionTextPeriod} </value> 
+		</property>
+		<property name="maxStatements"> 
+		    <value>${c3p0.maxStatements}</value> 
+		</property>
+		<property name="autoCommitOnClose">
+			<value>${c3p0.autoCommitOnClose}</value> 
+		</property> 
+		 -->
+		</bean>
+	
+	<!--
+		配置数据源，DriverManagerDataSource只能用于软件开发测试阶段，
+		在产品发布阶段，应该使用成熟的连接池实现，例如dbcp、C3P0等
+		<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName">
+			<value>com.mysql.jdbc.Driver</value>
+		</property>
+		<property name="url"
+			value="jdbc:mysql://127.0.0.1:3306/test1?useUnicode=true&amp;characterEncoding=utf-8" />
+		<property name="username">
+			<value>root</value>
+		</property>
+		<property name="password">
+			<value>sa</value>
+		</property>
+	</bean>
+	-->
+	
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<!-- 配置sessionFactory -->
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+
+		<property name="mappingResources">
+			<list>
+				<value>com/firstleap/entity/hbm/FirstLogin.hbm.xml</value>
+				<value>com/firstleap/entity/hbm/FirstUserRole.hbm.xml</value>
+				<value>com/firstleap/entity/hbm/FirstUserRegister.hbm.xml</value>
+				<value>com/firstleap/entity/hbm/FirstType.hbm.xml</value>
+				<value>com/firstleap/entity/hbm/FirstChildinfoType.hbm.xml</value>
+				<value>com/firstleap/entity/hbm/FirstPregnantType.hbm.xml</value>
+				<value>com/firstleap/entity/hbm/FirstWebType.hbm.xml</value>
+				<value>com/firstleap/entity/hbm/FirstChildinfoArticle.hbm.xml</value>
+				<value>com/firstleap/entity/hbm/FirstPregnantArticle.hbm.xml</value>
+				<value>com/firstleap/entity/hbm/FirstWebArticle.hbm.xml</value>
+				<value>com/firstleap/entity/hbm/FirstUserinfo.hbm.xml</value>
+				<value>com/firstleap/entity/hbm/SysLog.hbm.xml</value>
+				<value>com/firstleap/entity/hbm/FirstYuerArticle.hbm.xml</value>
+				<value>com/firstleap/entity/hbm/FirstYuerType.hbm.xml</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					 org.hibernate.dialect.MySQLDialect
+					<!--org.hibernate.dialect.Oracle9Dialect-->
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>	  <!--	create update  -->
+
+
+			</props>
+		</property>
+	</bean>
+	
+	<!--  配置事务管理器-->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	
+	
+
+	<!--  配制事务模版 -->
+	<bean id="transactionInterceptor"
+		class="com.firstleap.common.spring.MyTransactionInterceptor" >
+		<!--   为事务模板注入 事务管理器     -->
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<!-- <property name="order" value="10"/> -->
+		<!-- 设置事务属性  -->
+		<property name="transactionAttributes" >
+			<props>
+				<prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="find*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="load*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="save*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="add*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="update*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="edit*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="check*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="remove*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="merge*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="operate*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="create*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="init*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="*Init">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="rollBack*">PROPAGATION_REQUIRED,-Exception</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- 那些类的哪些方法参与事务 -->
+	<bean
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<!-- 需要代理bean id列表 -->
+		<property name="beanNames">
+			<list>
+				<value>*ServiceImpl</value>
+			</list>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>transactionInterceptor</value>
+			</list>
+		</property>
+	</bean>
+	<!-- 注解扫描范围 -->
+	<context:component-scan base-package="com" />
+	<context:annotation-config />
+</beans>

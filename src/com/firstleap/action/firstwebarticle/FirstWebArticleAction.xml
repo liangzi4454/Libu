@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+    "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="com.firstleap.action.firstwebarticle.FirstWebArticleAction" extends="index" namespace="/webart">
+		<action name="webart_*" class="FirstWebArticleAction" method="{1}">
+        	<result name="input">/index.jsp</result>
+        	<result name="list">/WEB-INF/firstleap/firstwebarticle/firstwebarticle.jsp</result>
+        	<result name="create">/WEB-INF/firstleap/firstwebarticle/firstwebarticleSave.jsp</result>
+        	<result name="save" type="redirect">/webart/webart_list.action</result>
+        	<result name="edit">/WEB-INF/firstleap/firstwebarticle/firstwebarticleUpdate.jsp</result>
+        	<result name="update" type="redirect">/webart/webart_list.action</result>
+        	
+        </action>
+	</package>
+	
+</struts>
+	
