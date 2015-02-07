@@ -40,7 +40,7 @@ IFirstPregnantArticleService {
 	 * 增加
 	 * @see net.ltak.service.childinfo.ILtakChildinfoService#saveChildinfo(net.ltak.entity.po.LtakChildinfo)
 	 */
-	@Override
+	
 	public boolean save(FirstPregnantArticle firstPregnantArticle,File file,String fileFileName ,String fileContentType) {
 		firstPregnantArticle.setId(Tools.UUID());
 //		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -66,7 +66,7 @@ IFirstPregnantArticleService {
 	 * 修改
 	 * @see net.ltak.service.childinfo.ILtakChildinfoService#updateChildinfo(net.ltak.entity.po.LtakChildinfo)
 	 */
-	@Override
+	
 	public boolean update(FirstPregnantArticle firstPregnantArticlei) {
 		Timestamp dateTime = new Timestamp(new Date().getTime());
 		firstPregnantArticle = firstPregnantArticleDao.get(firstPregnantArticlei.getId());//
@@ -83,7 +83,7 @@ IFirstPregnantArticleService {
 	 * 根据ID查询
 	 * @see net.ltak.service.vaccintion.ILtakVaccintionService#getByid(java.lang.String)
 	 */
-	@Override
+	
 	public FirstPregnantArticle getByid(String id) {
 		if(null == id || id.trim().length() ==0){
 			return null;
@@ -97,7 +97,7 @@ IFirstPregnantArticleService {
 	 * ɾ��
 	 * @see net.ltak.service.childinfo.ILtakChildinfoService#deleteChildinfo(java.lang.String)
 	 */
-	@Override
+	
 	public String delete(String id) {
 		// TODO Auto-generated method stub
 		String message = "";
@@ -122,7 +122,7 @@ IFirstPregnantArticleService {
 	 * 分页
 	 * @see net.ltak.service.childinfo.ILtakChildinfoService#findAllOrQueryAll(int, net.ltak.entity.po.LtakChildinfo)
 	 */
-	@Override
+	
 	public Pagination findAllOrQuery(int pageNo, FirstPregnantArticle firstPregnantArticle) {
 			String hql = "from FirstPregnantArticle l where 1 = 1";
 			return firstPregnantArticleDao.findByHql(hql, pageNo, PaginationConstants.PAGE_DEFAULT, null);
@@ -134,7 +134,7 @@ IFirstPregnantArticleService {
 	 * 分页
 	 * @see net.ltak.service.childinfo.ILtakChildinfoService#findAllOrQueryAll(int, net.ltak.entity.po.LtakChildinfo)
 	 */
-	@Override
+	
 	public Pagination findAllOrQueryi(int pageNo, FirstPregnantArticle firstPregnantArticle) {
 			String hql = "from FirstPregnantArticle l where l = 1 ";
 			return firstPregnantArticleDao.findByHql(hql, pageNo, PaginationConstants.PAGE_DEFAULT, null);
@@ -142,7 +142,7 @@ IFirstPregnantArticleService {
 	}
 	
 	
-	@Override
+	
 	public List<FirstPregnantArticle> list(String hosid) {
 		// TODO Auto-generated method stub
 		String hql = "from FirstPregnantArticle l where 1 = 1 ";

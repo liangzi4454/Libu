@@ -35,7 +35,7 @@ IFirstTypeService {
 	 * 增加
 	 * @see net.ltak.service.childinfo.ILtakChildinfoService#saveChildinfo(net.ltak.entity.po.LtakChildinfo)
 	 */
-	@Override
+	
 	public boolean saveFirstType(FirstType firstType,String qubie) {
 		firstType.setId(Tools.UUID());
 //		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -60,7 +60,7 @@ IFirstTypeService {
 	 * 修改
 	 * @see net.ltak.service.childinfo.ILtakChildinfoService#updateChildinfo(net.ltak.entity.po.LtakChildinfo)
 	 */
-	@Override
+	
 	public boolean updateFirstType(FirstType firstTypei) {
 		Timestamp dateTime = new Timestamp(new Date().getTime());
 		firstType = firstTypeDao.get(firstTypei.getId());//
@@ -77,7 +77,7 @@ IFirstTypeService {
 	 * 根据ID查询
 	 * @see net.ltak.service.vaccintion.ILtakVaccintionService#getByid(java.lang.String)
 	 */
-	@Override
+	
 	public FirstType getByid(String id) {
 		if(null == id || id.trim().length() ==0){
 			return null;
@@ -91,7 +91,7 @@ IFirstTypeService {
 	 * ɾ��
 	 * @see net.ltak.service.childinfo.ILtakChildinfoService#deleteChildinfo(java.lang.String)
 	 */
-	@Override
+	
 	public String deleteFirstType(String id) {
 		// TODO Auto-generated method stub
 		String message = "";
@@ -111,7 +111,7 @@ IFirstTypeService {
 	 * 分页
 	 * @see net.ltak.service.childinfo.ILtakChildinfoService#findAllOrQueryAll(int, net.ltak.entity.po.LtakChildinfo)
 	 */
-	@Override
+	
 	public Pagination findAllOrQuery(int pageNo, FirstType firstType) {
 			String hql = "from FirstType l where l.libuTypeType = 1 ";
 			return firstTypeDao.findByHql(hql, pageNo, PaginationConstants.PAGE_DEFAULT, null);
@@ -123,14 +123,14 @@ IFirstTypeService {
 	 * 分页
 	 * @see net.ltak.service.childinfo.ILtakChildinfoService#findAllOrQueryAll(int, net.ltak.entity.po.LtakChildinfo)
 	 */
-	@Override
+	
 	public Pagination findAllOrQueryi(int pageNo, FirstType firstType) {
 			String hql = "from FirstType l where l.libuTypeType = 2 ";
 			return firstTypeDao.findByHql(hql, pageNo, PaginationConstants.PAGE_DEFAULT, null);
 		
 	}
 	
-	@Override
+	
 	public List<FirstType> listFirstBumen(String hosid) {
 		// TODO Auto-generated method stub
 		String hql = "from FirstType where libuTypeType = ? ";

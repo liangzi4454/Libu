@@ -40,7 +40,7 @@ IFirstWebArticleService {
 	 * 增加
 	 * @see net.ltak.service.childinfo.ILtakChildinfoService#saveChildinfo(net.ltak.entity.po.LtakChildinfo)
 	 */
-	@Override
+	
 	public boolean save(FirstWebArticle firstWebArticle,File file,String fileFileName ,String fileContentType) {
 		firstWebArticle.setId(Tools.UUID());
 //		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -66,7 +66,7 @@ IFirstWebArticleService {
 	 * 修改
 	 * @see net.ltak.service.childinfo.ILtakChildinfoService#updateChildinfo(net.ltak.entity.po.LtakChildinfo)
 	 */
-	@Override
+	
 	public boolean update(FirstWebArticle firstWebArticle) {
 		Timestamp dateTime = new Timestamp(new Date().getTime());
 		firstWebType = firstWebTypeDao.get(firstWebArticle.getId());//
@@ -83,7 +83,7 @@ IFirstWebArticleService {
 	 * 根据ID查询
 	 * @see net.ltak.service.vaccintion.ILtakVaccintionService#getByid(java.lang.String)
 	 */
-	@Override
+	
 	public FirstWebArticle getByid(String id) {
 		if(null == id || id.trim().length() ==0){
 			return null;
@@ -97,7 +97,7 @@ IFirstWebArticleService {
 	 * ɾ��
 	 * @see net.ltak.service.childinfo.ILtakChildinfoService#deleteChildinfo(java.lang.String)
 	 */
-	@Override
+	
 	public String delete(String id) {
 		// TODO Auto-generated method stub
 		String message = "";
@@ -126,7 +126,7 @@ IFirstWebArticleService {
 	 * 分页
 	 * @see net.ltak.service.childinfo.ILtakChildinfoService#findAllOrQueryAll(int, net.ltak.entity.po.LtakChildinfo)
 	 */
-	@Override
+	
 	public Pagination findAllOrQuery(int pageNo, FirstWebArticle firstWebArticle) {
 			String hql = "from FirstWebArticle l where 1 = 1 ";
 			return firstWebTypeDao.findByHql(hql, pageNo, PaginationConstants.PAGE_DEFAULT, null);
@@ -138,7 +138,7 @@ IFirstWebArticleService {
 	 * 分页
 	 * @see net.ltak.service.childinfo.ILtakChildinfoService#findAllOrQueryAll(int, net.ltak.entity.po.LtakChildinfo)
 	 */
-	@Override
+	
 	public Pagination findAllOrQueryi(int pageNo, FirstWebArticle firstWebArticle) {
 			String hql = "from FirstWebArticle l where l = 1 ";
 			return firstWebTypeDao.findByHql(hql, pageNo, PaginationConstants.PAGE_DEFAULT, null);
@@ -146,7 +146,7 @@ IFirstWebArticleService {
 	}
 	
 	
-	@Override
+	
 	public List<FirstWebArticle> list(String hosid) {
 		// TODO Auto-generated method stub
 		String hql = "from FirstWebArticle l where 1 = 1 ";

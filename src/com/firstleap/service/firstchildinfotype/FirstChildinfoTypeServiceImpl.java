@@ -35,7 +35,7 @@ IFirstChildinfoTypeService {
 	 * 增加
 	 * @see net.ltak.service.childinfo.ILtakChildinfoService#saveChildinfo(net.ltak.entity.po.LtakChildinfo)
 	 */
-	@Override
+	
 	public boolean save(FirstChildinfoType firstChildinfoType,String qubie) {
 		firstChildinfoType.setId(Tools.UUID());
 //		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -59,7 +59,7 @@ IFirstChildinfoTypeService {
 	 * 修改
 	 * @see net.ltak.service.childinfo.ILtakChildinfoService#updateChildinfo(net.ltak.entity.po.LtakChildinfo)
 	 */
-	@Override
+	
 	public boolean update(FirstChildinfoType firstChildinfoType) {
 		Timestamp dateTime = new Timestamp(new Date().getTime());
 		childinfoType = dao.get(firstChildinfoType.getId());//
@@ -76,7 +76,7 @@ IFirstChildinfoTypeService {
 	 * 根据ID查询
 	 * @see net.ltak.service.vaccintion.ILtakVaccintionService#getByid(java.lang.String)
 	 */
-	@Override
+	
 	public FirstChildinfoType getByid(String id) {
 		if(null == id || id.trim().length() ==0){
 			return null;
@@ -90,7 +90,7 @@ IFirstChildinfoTypeService {
 	 * ɾ��
 	 * @see net.ltak.service.childinfo.ILtakChildinfoService#deleteChildinfo(java.lang.String)
 	 */
-	@Override
+	
 	public String delete(String id) {
 		// TODO Auto-generated method stub
 		String message = "";
@@ -111,7 +111,7 @@ IFirstChildinfoTypeService {
 	 * 分页
 	 * @see net.ltak.service.childinfo.ILtakChildinfoService#findAllOrQueryAll(int, net.ltak.entity.po.LtakChildinfo)
 	 */
-	@Override
+	
 	public Pagination findAllOrQuery(int pageNo, FirstChildinfoType firstChildinfoType) {
 			String hql = "from FirstChildinfoType l where l.libuChildinfoType = 1 ";
 			return dao.findByHql(hql, pageNo, PaginationConstants.PAGE_DEFAULT, null);
@@ -123,7 +123,7 @@ IFirstChildinfoTypeService {
 	 * 分页
 	 * @see net.ltak.service.childinfo.ILtakChildinfoService#findAllOrQueryAll(int, net.ltak.entity.po.LtakChildinfo)
 	 */
-	@Override
+	
 	public Pagination findAllOrQueryi(int pageNo, FirstChildinfoType firstChildinfoType) {
 			String hql = "from FirstChildinfoType l where l.libuChildinfoType = 2 ";
 			return dao.findByHql(hql, pageNo, PaginationConstants.PAGE_DEFAULT, null);
@@ -131,7 +131,7 @@ IFirstChildinfoTypeService {
 	}
 	
 	
-	@Override
+	
 	public List<FirstChildinfoType> list(String hosid) {
 		// TODO Auto-generated method stub
 		String hql = "from FirstChildinfoType l where l.libuChildinfoType = ? ";

@@ -35,7 +35,7 @@ IFirstWebTypeService {
 	 * 增加
 	 * @see net.ltak.service.childinfo.ILtakChildinfoService#saveChildinfo(net.ltak.entity.po.LtakChildinfo)
 	 */
-	@Override
+	
 	public boolean saveFirstWebType(FirstWebType firstWebType,String qubie) {
 		firstWebType.setId(Tools.UUID());
 //		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -59,7 +59,7 @@ IFirstWebTypeService {
 	 * 修改
 	 * @see net.ltak.service.childinfo.ILtakChildinfoService#updateChildinfo(net.ltak.entity.po.LtakChildinfo)
 	 */
-	@Override
+	
 	public boolean updateFirstWebType(FirstWebType firstWebTypei) {
 		Timestamp dateTime = new Timestamp(new Date().getTime());
 		firstWebType = firstWebTypeDao.get(firstWebTypei.getId());//
@@ -76,7 +76,7 @@ IFirstWebTypeService {
 	 * 根据ID查询
 	 * @see net.ltak.service.vaccintion.ILtakVaccintionService#getByid(java.lang.String)
 	 */
-	@Override
+	
 	public FirstWebType getByid(String id) {
 		if(null == id || id.trim().length() ==0){
 			return null;
@@ -90,7 +90,7 @@ IFirstWebTypeService {
 	 * ɾ��
 	 * @see net.ltak.service.childinfo.ILtakChildinfoService#deleteChildinfo(java.lang.String)
 	 */
-	@Override
+	
 	public String deleteFirstWebType(String id) {
 		// TODO Auto-generated method stub
 		String message = "";
@@ -110,7 +110,7 @@ IFirstWebTypeService {
 	 * 分页
 	 * @see net.ltak.service.childinfo.ILtakChildinfoService#findAllOrQueryAll(int, net.ltak.entity.po.LtakChildinfo)
 	 */
-	@Override
+	
 	public Pagination findAllOrQuery(int pageNo, FirstWebType firstWebType) {
 			String hql = "from FirstWebType l where l.libuWebType = 1 ";
 			return firstWebTypeDao.findByHql(hql, pageNo, PaginationConstants.PAGE_DEFAULT, null);
@@ -122,7 +122,7 @@ IFirstWebTypeService {
 	 * 分页
 	 * @see net.ltak.service.childinfo.ILtakChildinfoService#findAllOrQueryAll(int, net.ltak.entity.po.LtakChildinfo)
 	 */
-	@Override
+	
 	public Pagination findAllOrQueryi(int pageNo, FirstWebType firstWebType) {
 			String hql = "from FirstWebType l where l.libuWebType = 2 ";
 			return firstWebTypeDao.findByHql(hql, pageNo, PaginationConstants.PAGE_DEFAULT, null);
@@ -130,7 +130,7 @@ IFirstWebTypeService {
 	}
 	
 	
-	@Override
+	
 	public List<FirstWebType> listFirstWebType(String hosid) {
 		// TODO Auto-generated method stub
 		String hql = "from FirstWebType l where l.libuWebType = ? ";

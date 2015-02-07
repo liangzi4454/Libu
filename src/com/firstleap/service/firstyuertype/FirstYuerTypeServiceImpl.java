@@ -35,7 +35,7 @@ IFirstYuerTypeService {
 	 * 增加
 	 * @see net.ltak.service.childinfo.ILtakChildinfoService#saveChildinfo(net.ltak.entity.po.LtakChildinfo)
 	 */
-	@Override
+	
 	public boolean save(FirstYuerType firstYuerType,String qubie) {
 		firstYuerType.setId(Tools.UUID());
 //		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -59,7 +59,7 @@ IFirstYuerTypeService {
 	 * 修改
 	 * @see net.ltak.service.childinfo.ILtakChildinfoService#updateChildinfo(net.ltak.entity.po.LtakChildinfo)
 	 */
-	@Override
+	
 	public boolean update(FirstYuerType firstYuerType) {
 		Timestamp dateTime = new Timestamp(new Date().getTime());
 		yuerType = dao.get(firstYuerType.getId());//
@@ -76,7 +76,7 @@ IFirstYuerTypeService {
 	 * 根据ID查询
 	 * @see net.ltak.service.vaccintion.ILtakVaccintionService#getByid(java.lang.String)
 	 */
-	@Override
+	
 	public FirstYuerType getByid(String id) {
 		if(null == id || id.trim().length() ==0){
 			return null;
@@ -90,7 +90,7 @@ IFirstYuerTypeService {
 	 * ɾ��
 	 * @see net.ltak.service.childinfo.ILtakChildinfoService#deleteChildinfo(java.lang.String)
 	 */
-	@Override
+	
 	public String delete(String id) {
 		// TODO Auto-generated method stub
 		String message = "";
@@ -111,7 +111,7 @@ IFirstYuerTypeService {
 	 * 分页
 	 * @see net.ltak.service.childinfo.ILtakChildinfoService#findAllOrQueryAll(int, net.ltak.entity.po.LtakChildinfo)
 	 */
-	@Override
+	
 	public Pagination findAllOrQuery(int pageNo, FirstYuerType firstYuerType) {
 			String hql = "from FirstYuerType l where l.libuChildinfoType = 1 ";
 			return dao.findByHql(hql, pageNo, PaginationConstants.PAGE_DEFAULT, null);
@@ -123,7 +123,7 @@ IFirstYuerTypeService {
 	 * 分页
 	 * @see net.ltak.service.childinfo.ILtakChildinfoService#findAllOrQueryAll(int, net.ltak.entity.po.LtakChildinfo)
 	 */
-	@Override
+	
 	public Pagination findAllOrQueryi(int pageNo, FirstYuerType firstYuerType ) {
 			String hql = "from FirstYuerType l where l.libuChildinfoType = 2 ";
 			return dao.findByHql(hql, pageNo, PaginationConstants.PAGE_DEFAULT, null);
@@ -131,7 +131,7 @@ IFirstYuerTypeService {
 	}
 	
 	
-	@Override
+	
 	public List<FirstYuerType> list(String hosid) {
 		// TODO Auto-generated method stub
 		String hql = "from FirstYuerType l where l.libuChildinfoType = ? ";

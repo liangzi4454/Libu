@@ -31,10 +31,10 @@ IFirstLoginService {
 
 
 	/* (non-Javadoc)
-	 * µÇÂ½
+	 * ï¿½ï¿½Â½
 	 * @see net.ltak.service.login.ILtakLoginService#userLogin(net.ltak.entity.po.LtakLogin)
 	 */
-	@Override
+	
 	public FirstLogin userLogin(FirstLogin ltakLogin) {
 		// TODO Auto-generated method stub
 		List<FirstLogin> list = ltakLoginDao.findUser(ltakLogin);
@@ -46,10 +46,10 @@ IFirstLoginService {
 	}
 	
 	/* (non-Javadoc)
-	 * ÑéÖ¤µÇÂ¼Ãû
+	 * ï¿½ï¿½Ö¤ï¿½ï¿½Â¼ï¿½ï¿½
 	 * @see net.ltak.service.login.ILtakLoginService#checkUser(net.ltak.entity.po.LtakLogin)
 	 */
-	@Override
+	
 	public FirstLogin checkUser(FirstLogin ltakLogin) {
 		// TODO Auto-generated method stub
 		List<FirstLogin> list = ltakLoginDao.checkUser(ltakLogin);
@@ -61,10 +61,10 @@ IFirstLoginService {
 	}
 	
 	/* (non-Javadoc)
-	 * Ôö¼ÓµÇÂ¼ÓÃ»§
+	 * ï¿½ï¿½ï¿½Óµï¿½Â¼ï¿½Ã»ï¿½
 	 * @see net.ltak.service.login.ILtakLoginService#savaLogin(net.ltak.entity.po.LtakLogin)
 	 */
-	@Override
+	
 	public FirstLogin savaLogin(FirstLogin ltakLogin) {
 		ltakLogin.setLoginId(Tools.UUID());
 		ltakLogin = ltakLoginDao.save(ltakLogin);
@@ -72,10 +72,10 @@ IFirstLoginService {
 	}
 	
 	
-	/* (non-Javadoc)²éÑ¯
+	/* (non-Javadoc)ï¿½ï¿½Ñ¯
 	 * @see net.ltak.service.login.ILtakLoginService#queryLogin(net.ltak.entity.po.LtakLogin)
 	 */
-	@Override
+	
 	public List<FirstLogin> queryAllLogin(FirstLogin ltakLogin){
 		ArrayList<FirstLogin> list = (ArrayList<FirstLogin>)ltakLoginDao.findAll();
 		return list;
@@ -83,10 +83,10 @@ IFirstLoginService {
 	}
 	
 	
-	/* (non-Javadoc)É¾³ý
+	/* (non-Javadoc)É¾ï¿½ï¿½
 	 * @see net.ltak.service.login.ILtakLoginService#delecteLogin(java.lang.String)
 	 */
-	@Override
+	
 	public Boolean delecteLogin(String id) {
 		// TODO Auto-generated method stub
 		Boolean flag = null;
@@ -102,10 +102,10 @@ IFirstLoginService {
 	}
 	
 	
-	/* (non-Javadoc)¸ù¾Ýid²éÑ¯
+	/* (non-Javadoc)ï¿½ï¿½ï¿½idï¿½ï¿½Ñ¯
 	 * @see net.ltak.service.login.ILtakLoginService#getByid(java.lang.String)
 	 */
-	@Override
+	
 	public FirstLogin getByid(String id) {
 		ltakLogin = ltakLoginDao.get(id);
 		// TODO Auto-generated method stub
@@ -113,10 +113,10 @@ IFirstLoginService {
 	}
 
 	
-	/* (non-Javadoc)¸üÐÂ
+	/* (non-Javadoc)ï¿½ï¿½ï¿½ï¿½
 	 * @see net.ltak.service.login.ILtakLoginService#updateLogin(net.ltak.entity.po.LtakLogin)
 	 */
-	@Override
+	
 	public Boolean updateLogin(FirstLogin ltakLogin) {
 		FirstLogin rtLtakLogin = (FirstLogin)ltakLoginDao.update(ltakLogin);
 		if(null != rtLtakLogin) {
@@ -126,16 +126,16 @@ IFirstLoginService {
 	}
 	
 	
-	/* (non-Javadoc) ·ÖÒ³
+	/* (non-Javadoc) ï¿½ï¿½Ò³
 	 * @see net.ltak.service.login.ILtakLoginService#findAllOrQuery(int)
 	 */
-	@Override
+	
 	public Pagination findAllOrQuery(int pageNo) {
 		return ltakLoginDao.findAll(pageNo, PaginationConstants.PAGE_DEFAULT,new OrderBy[]{OrderBy.asc("loginId")});
 	}
 	
 	
-	/* (non-Javadoc)¸ù¾ÝÌõ¼þ²éÑ¯Ò»¸ö¶ÔÏó
+	/* (non-Javadoc)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @see net.bjstd.service.system.userrole.IUserRoleSvr#findAllUserRole(int)
 	 */
 	public Pagination findAllQueryLogin(int pageNo , FirstLogin ltakLogin) {
@@ -144,7 +144,7 @@ IFirstLoginService {
 	}
 
 	
-	/***************************·â×°**********************************/
+	/***************************ï¿½ï¿½×°**********************************/
 	public IFirstLoginDao getLtakLoginDao() {
 		return ltakLoginDao;
 	}
